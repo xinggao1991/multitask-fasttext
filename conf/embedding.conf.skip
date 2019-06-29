@@ -1,0 +1,61 @@
+# process (train / predict / distance / sentence_vec /pair)
+process=train
+# model path
+modeldir =
+# file path
+trainfile=./data.train.cls
+evalfile=./data.dev
+# min word number of example
+minlen=3
+# max word number of example
+maxlen=5000
+# the vocab size number
+maxvocabsize=10000000
+# the parase size number
+maxphrasesize=10000000
+# the min seged word frequence number
+minwordfreq=1
+minsubwordfreq=1
+# the min phrase frequence number
+minphrasefreq=1
+phrasefreqthreshold = 10
+# the dim of word/phrase vector
+dim=128
+# the ngram number
+ngram=1
+# the subword ngram
+subngram=2
+# window size
+windowsize=5
+# train thread number
+thread = 8
+# print info every ...
+getlossevery = 1000
+evalevery=30000
+# epoch number while train model
+epoch=20
+# learn rate while train model
+learnrate = 0.025 
+# high frequent word discard param
+freqsample = 0.0001
+
+###################### skip param #######################
+# set true: use skip gram to train word/phrase vector , or false: not train word/phrase vector
+useskipgram=true
+skipgram_boost=1.0
+skipgram_neg_sample = 3
+skipgram_boost_freq_sample = 1
+
+###################### cls param #######################
+# set true: to classify text
+usecls=true
+cls_a_boost=1
+cls_a_use_as_skip_example=true
+cls_a_neg_sample = 3
+cls_a_boost_freq_sample=1
+
+###################### pair param #######################
+usepair = false
+pair_b_boost = 1.0
+pair_b_use_as_skip_example=false
+pair_b_boost_freq_sample=2
