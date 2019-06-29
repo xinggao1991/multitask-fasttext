@@ -1,7 +1,7 @@
 ## multitask-fasttext
 What is [multitask-fasttext](https://github.com/xinggao1991/multitask-fasttext)?
 * It's not just a copy of fasttext, multitask-fasttext is a totally different multitask-model.
-* Compare with supporting only one task (fasttext support cboe/skip/supervise), multitask-fasttext does support to train several task together(**do not need change code**).
+* Compare with supporting only one task (fasttext support cbow/skip/supervise), multitask-fasttext does support to train several task together(**do not need change code**).
 * cross-lingual support
 
 ## Requirements
@@ -21,6 +21,7 @@ $ ./make.sh
 It support multitask and cross-lingual by **data format** and **config**
 ### Preparing data
 Currently, it support three data format.
+
 **format.1**: to run word embedding with skip-gram 
 ```
 $ skip  \t  text
@@ -34,14 +35,18 @@ $ cls  \t  tasktag  \t  label  \t  text
 $ pair  \t  tasktag  \t  label  \t  text1  \t  text2
 ```
 skip/cls/pair: it is a tag which can be used to distinguish different model
+
 tasktag: it is used to distinguish different task
+
     for example, if you have three different classification task, you can use:
 ```
 $ cls  \t  a  \t  1  \t  I'm a man ...
 $ cls  \t  b  \t  5  \t  The movie is very good ...
 $ cls  \t  c  \t  2  \t  NLP is very popular now ...
 ```
+
 label: a number from 0-n. (if use 'pair' model, it is 0/1)
+
 text: seged sentence. you can use [sentencepiece](https://github.com/google/sentencepiece) to support cross-lingual
 
 ### Multi-lingual support
