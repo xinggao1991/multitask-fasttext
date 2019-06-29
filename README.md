@@ -1,25 +1,25 @@
-# multitask-fasttext
+## multitask-fasttext
 What is [multitask-fasttext](https://github.com/xinggao1991/multitask-fasttext)?
 * It's not just a copy of fasttext, multitask-fasttext is a totally different multitask-model.
 * Compare with supporting only one task (fasttext support cboe/skip/supervise), multitask-fasttext does support to train several task together(**do not need change code**).
 * cross-lingual support
 
-# Requirements
+## Requirements
 * latest g++
 
-# Getting the source code
+## Getting the source code
 ```
 $ git clone https://github.com/xinggao1991/multitask-fasttext
 ```
 
-# Building code
+## Building code
 ```
 $ ./make.sh
 ```
 
-# How to support multitask and cross-lingual?
+## How to support multitask and cross-lingual?
 It support multitask and cross-lingual by **data format** and **config**
-## Preparing data
+### Preparing data
 Currently, it support three data format.
 **format.1**: to run word embedding with skip-gram 
 ```
@@ -44,7 +44,7 @@ $ cls  \t  c  \t  2  \t  NLP is very popular now ...
 label: a number from 0-n. (if use 'pair' model, it is 0/1)
 text: seged sentence. you can use [sentencepiece](https://github.com/google/sentencepiece) to support cross-lingual
 
-## Multi-lingual support
+### Multi-lingual support
 If want use cross-lingual support, the **pair model and skip model** can be useful with following config:
 ```
 $ skip  \t  language1
@@ -53,19 +53,19 @@ $ pair  \t  task1  \t  label  \t  langual1  \t langual2
 ```
 which means embedding different language respectively, and mapping them into the same vector space.
 
-## Writing config
+### Writing config
 There is an example in the conf directory. Specially:
 * set **useskipgram / usecls / usepair** with the value **true** to enable different model.
 * set **process** with the value **train / preict / ...** to start different process.
 * set trainfile and evalfile
 
-# Training model
+## Training model
 ```
 $ ./embedding ./conf/embedding.conf
 ```
 set process=train
 
-# Testing model
+## Testing model
 ```
 $ ./embedding ./conf/embedding.conf
 ```
